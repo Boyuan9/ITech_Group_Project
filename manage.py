@@ -3,11 +3,9 @@ import os
 import sys
 
 if __name__ == '__main__':
-<<<<<<< HEAD
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'lzx1.settings')
-=======
+
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tango_with_django_project.settings')
->>>>>>> dc63519 (Chapter3 commit)
+
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
