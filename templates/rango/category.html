@@ -21,6 +21,7 @@
     <ul>
         {% for page in pages %}
         <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+
         <img src="{% static page.img %}" class="img-polaroid">
         {% endfor %}
     </ul>

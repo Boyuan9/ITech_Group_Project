@@ -17,39 +17,43 @@ def populate():
         {'title': 'Jujutsu Kaisen',
          'url':'http://docs.python.org/3/tutorial/',
          'views':99,
-         'img':'images/kuro_maiden.jpg'},
-        {'title':'Anime2',
+         'img':'images/jks.png'},
+        {'title':'Nomad: Megalo Box 2',
          'url':'http://www.greenteapress.com/thinkpython/',
          'views':59,
-         'img':'images/eden_zero.jpg'},
-        {'title':'Anime3',
+         'img':'images/nomad.png'},
+        {'title':'Kobayashi-san Chi no Maid Dragon S',
          'url':'http://www.korokithakis.net/tutorials/python/',
          'views':95,
-         'img':'images/dragon_maid.jpg'} ]
+         'img':'images/drgm.png'},
+         {'title':'SSSS.Dynazenon',
+         'url':'http://www.korokithakis.net/tutorials/python/',
+         'views':95,
+         'img':'images/ssss.png'} ]
 
     Comics_pages = [
-        {'title':'Comics1',
+        {'title':'One Piece',
          'url':'https://docs.djangoproject.com/en/2.1/intro/tutorial01/',
          'views':29,
-         'img':'{{ MEDIA_URL }}cat.jpg'},
-        {'title':'Comics2',
+         'img':'images/op.png'},
+        {'title':'One Punch-Man',
          'url':'http://www.djangorocks.com/',
          'views':51,
-         'img':'{{ MEDIA_URL }}cat.jpg'},
-        {'title':'Comics3',
+         'img':'images/opm.png'},
+        {'title':'Fullmetal Alchemist',
          'url':'http://www.tangowithdjango.com/',
          'views':71,
-         'img':'{{ MEDIA_URL }}cat.jpg'} ]
+         'img':'images/fa.png'} ]
 
     Games_pages = [
-        {'title':'Games1',
+        {'title':'Dead Cells',
          'url':'http://bottlepy.org/docs/dev/',
          'views':44,
-         'img':'{{ MEDIA_URL }}cat.jpg'},
-        {'title':'Games2',
+         'img':'images/dc.png'},
+        {'title':'Monster Hunter: World',
          'url':'http://flask.pocoo.org',
          'views':67,
-         'img':'{{ MEDIA_URL }}cat.jpg'} ]
+         'img':'images/mhw.png'} ]
 
     cats = {'Anime': {'pages': Anime_pages,'views':128,'likes':64},
             'Comics': {'pages': Comics_pages,'views':64,'likes':32},

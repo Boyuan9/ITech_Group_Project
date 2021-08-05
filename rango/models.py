@@ -19,8 +19,9 @@ class Page(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     title = models.CharField(max_length=128)
     url = models.URLField()
+
     views = models.IntegerField(default=0)
-    img= models.CharField(max_length=128)
+    img= models.SlugField(max_length=128)
     def __str__(self):
         return self.title
 
