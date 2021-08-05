@@ -21,6 +21,8 @@ class Page(models.Model):
     url = models.URLField()
 
     views = models.IntegerField(default=0)
+    info = models.CharField(max_length=1000)
+    rating = models.IntegerField(default=0)
     img= models.SlugField(max_length=128)
     def __str__(self):
         return self.title

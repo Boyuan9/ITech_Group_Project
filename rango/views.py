@@ -21,11 +21,12 @@ def index(request):
     # Place the list in our context_dict dictionary (with our boldmessage!)
     # that will be passed to the template engine.
     category_list = Category.objects.order_by('-likes')[:5]
-    page_list =Page.objects.order_by('-views')[:5]
+
+    rating_list =Page.objects.order_by('-rating')
     context_dict = {}
     context_dict['boldmessage'] = 'Crunchy, creamy, cookie, candy, cupcake!'
     context_dict['categories'] = category_list
-    context_dict['pages'] = page_list
+    context_dict['pages'] = rating_list
     # Render the response and send it back!
     visitor_cookie_handler(request)
     
@@ -49,8 +50,9 @@ def show_category(request, category_name_slug):
         # Retrieve all of the associated pages.
         # The filter() will return a list of page objects or an empty list.
         pages = Page.objects.filter(category=category)
+        rating_pages =pages.order_by('-rating')
         # Adds our results list to the template context under name pages.
-        context_dict['pages'] = pages
+        context_dict['pages'] = rating_pages
         # We also add the category object from
         # the database to the context dictionary.
         # We'll use this in the template to verify that the category exists.
