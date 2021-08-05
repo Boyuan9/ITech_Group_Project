@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends 'rango/base.html' %}
 {% load staticfiles %}
 
@@ -13,4 +14,20 @@
 </div>
 Since you're logged in, you can see this text!<br />
 
+=======
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    Restricted Page
+{% endblock %}
+
+{% block body_block %}
+<div class="jumbotron p-4">
+    <div class="container">
+        <h1 class="jumbotron-heading">Restricted Page</h1>
+    </div>
+</div>
+Since you're logged in, you can see this text!<br />
+>>>>>>> cccb2d1bf1161a539a3363c10d5e987657ed0b07
 {% endblock %}

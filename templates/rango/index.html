@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 {% extends 'rango/base.html' %}
 
@@ -43,4 +44,51 @@
 </div>
 <img src="{% static 'images/rango.jpg' %}" alt="Picture of Rango" />
 
+=======
+
+{% extends 'rango/base.html' %}
+
+{% load staticfiles %}
+
+{% block title_block %}
+    Homepage
+{% endblock %}
+
+{% block body_block %}
+<div class="jumbotron p-4">
+    <div class="container">
+        <h1 class="jumbotron-heading">Rango says...</h1>
+        <div>
+            <h2 class="h2">
+            {% if user.is_authenticated %}
+                howdy {{ user.username }}!
+            {% else %}
+                hey there partner!
+            {% endif %}
+            </h2>
+            <strong>{{ boldmessage }}</strong>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        {% if categories %}
+        {% for category in categories %}
+        <div class="span4">
+            <h2>{{ category.name }}</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a class="btn btn-primary" href="{% url 'rango:show_category' category.slug %}">View details &raquo;</a></p>
+        </div>
+
+        
+        {% endfor %}
+        {% else %}
+        <strong>There are no categories present.</strong>
+        {% endif %}
+    </div>
+</div>
+<img src="{% static 'images/rango.jpg' %}" alt="Picture of Rango" />
+
+>>>>>>> cccb2d1bf1161a539a3363c10d5e987657ed0b07
 {% endblock %}
