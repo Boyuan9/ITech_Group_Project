@@ -10,16 +10,16 @@
 {% block body_block %}
 <div class="jumbotron p-4">
     <div class="container">
-        <h1 class="jumbotron-heading">Rango says...</h1>
+        <h1 class="jumbotron-heading">FleeLight</h1>
         <div>
             <h2 class="h2">
             {% if user.is_authenticated %}
-                howdy {{ user.username }}!
+                Hi {{ user.username }}!
             {% else %}
                 hey there partner!
             {% endif %}
             </h2>
-            <strong>{{ boldmessage }}</strong>
+            
         </div>
     </div>
 </div>
