@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block body_block %}
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     {% if category %}
     <div class="jumbotron p-4">
         <div class="container">
@@ -20,11 +20,14 @@
     {% if pages %}
     <ul>
         {% for page in pages %}
-        <li><a href="{{ page.url }}">{{ page.title }}</a></li>
-
-        <img src="{% static page.img %}" class="img-polaroid">
-        <a>Rating: {{ page.rating }}</a><br>
-        <a>{{ page.info }}</a>
+        <div class="media">
+            <img src="{% static page.img %}" width="150px" height="180px" class="align-self-center mr-3" alt="...">
+            <div class="media-body">
+              <h5 class="mt-0"><a href="{% url 'rango:restricted' %}">{{ page.title }}</a></h5>
+              <h5 class="mt-0">Rating: {{ page.rating }}</a></h5>
+              {{ page.info }}
+            </div>
+          </div>
         {% endfor %}
     </ul>
     {% else %}
