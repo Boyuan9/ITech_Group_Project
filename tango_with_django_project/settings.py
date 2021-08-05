@@ -31,9 +31,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-LOGIN_URL = 'rango:login'
+#LOGIN_URL = 'rango:login'
 # Application definition
-
+REGISTRATION_OPEN = True
+REGISTRATION_AUTO_LOGIN = True
+LOGIN_REDIRECT_URL = '/rango/'
+LOGIN_URL = '/accounts/login/'
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,7 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rango'
+    'rango',
+    'registration'
 ]
 
 MIDDLEWARE = [
