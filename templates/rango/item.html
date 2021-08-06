@@ -1,0 +1,34 @@
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    {% if item %}
+        {{ item.title }}
+    {% else %}
+        Unknown Item
+    {% endif %}
+{% endblock %}
+
+{% block body_block %}
+    {% if item %}
+    <div id="pic" style="float:left;">
+        <img src="{% static item.img %}" class="img-polaroid">
+    </div>
+    <div id="content" style="float:right;">
+    <h1>&nbsp;{{ item.title }}</a></h1>
+    <p>{{ item.info }}</p>
+    <p>{{ item.rating }}</p>
+    </div>
+    <div id="rating">
+    {% if user.is_authenticated %}
+    <form action="form_action.asp" method="get">
+    Your Rating: <input type="int" name="rating" />
+    <input type="submit" value="Submit" />
+    </form>
+    {% endif %}
+    {% else %}
+    <p> Login for Rating </p>
+    {% endif %}
+    </div>
+
+{% endblock %}

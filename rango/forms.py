@@ -24,6 +24,7 @@ class PageForm(forms.ModelForm):
     views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     img = forms.CharField(max_length=128,
                             help_text="Please enter the image of the page.")
+    slug = forms.CharField(widget=forms.HiddenInput(), required=False)
     class Meta:
         # Provide an association between the ModelForm and a model
         model = Page

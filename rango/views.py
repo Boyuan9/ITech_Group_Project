@@ -65,6 +65,23 @@ def show_category(request, category_name_slug):
         context_dict['pages'] = None
     # Go render the response and return it to the client.
     return render(request, 'rango/category.html', context=context_dict)
+
+def show_item(request, item_name_slug):
+    # Create a context dictionary which we can pass
+    # to the template rendering engine.
+    context_dict = {}
+    try:
+        item = Page.objects.get(slug=item_name_slug)
+        # Adds our results list to the template context under name pages.
+        context_dict['item'] = item
+    except Page.DoesNotExist:
+        # We get here if we didn't find the specified category.
+        # Don't do anything -
+        # the template will display the "no category" message for us.
+        context_dict['item'] = None
+    # Go render the response and return it to the client.
+    return render(request, 'rango/item.html', context=context_dict)
+
 @login_required
 def add_category(request):
     form = CategoryForm()
