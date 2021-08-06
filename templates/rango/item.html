@@ -10,25 +10,30 @@
 {% endblock %}
 
 {% block body_block %}
-    {% if item %}
-    <div id="pic" style="float:left;">
-        <img src="{% static item.img %}" class="img-polaroid">
+{% if item %}
+<div class="media">
+    <img src="{% static item.img %}"  width="400px" height="550px" class="mr-3">
+    <div class="media-body">
+      <h1 class="mt-0">{{ item.title }}</h1>
+      <h5 class="mt-0">Rating: {{ item.rating }}</h5>
+      {% if user.is_authenticated %}
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Give Your Rating
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a id = "star_1" class="dropdown-item">1</a>
+            <a id = "star_2" class="dropdown-item">2</a>
+            <a id = "star_3" class="dropdown-item">3</a>
+            <a id = "star_4" class="dropdown-item">4</a>
+            <a id = "star_5" class="dropdown-item">5</a>
+        </div>
+      </div>
+      {% endif %}
+      <br>
+      {{ item.info }}
     </div>
-    <div id="content" style="float:right;">
-    <h1>&nbsp;{{ item.title }}</a></h1>
-    <p>{{ item.info }}</p>
-    <p>{{ item.rating }}</p>
-    </div>
-    <div id="rating">
-    {% if user.is_authenticated %}
-    <form action="form_action.asp" method="get">
-    Your Rating: <input type="int" name="rating" />
-    <input type="submit" value="Submit" />
-    </form>
-    {% endif %}
-    {% else %}
-    <p> Login for Rating </p>
-    {% endif %}
-    </div>
+  </div>
+{% endif %}
 
 {% endblock %}

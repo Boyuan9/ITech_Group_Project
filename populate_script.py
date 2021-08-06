@@ -73,9 +73,9 @@ def populate():
          'rating': 5,
          'img':'images/mhw.png'} ]
 
-    cats = {'Anime': {'pages': Anime_pages,'views':128,'likes':64, 'info':'','img':''},
-            'Comics': {'pages': Comics_pages,'views':64,'likes':32, 'info':'','img':''},
-            'Games': {'pages': Games_pages,'views':32,'likes':16, 'info':'','img':''} }
+    cats = {'Anime': {'pages': Anime_pages,'views':128,'likes':64, 'info':'View the most popular animations','img':'images/anime.png'},
+            'Comics': {'pages': Comics_pages,'views':64,'likes':32, 'info':'View the most popular comics','img':'images/comic.png'},
+            'Games': {'pages': Games_pages,'views':32,'likes':16, 'info':'View the most popular games','img':'images/game.png'} }
     
 # If you want to add more categories or pages,
 # add them to the dictionaries above.

@@ -11,6 +11,8 @@ from rango.forms import UserForm, UserProfileForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
+from django.views import View
+from django.utils.decorators import method_decorator
 
 # Create your views here.
 from django.http import HttpResponse
@@ -157,3 +159,17 @@ def visitor_cookie_handler(request):
         request.session['last_visit'] = last_visit_cookie
     
     request.session['visits'] = visits
+
+class LikeCategoryView(View):
+    @method_decorator(login_required)
+    def get(self, request):
+        item_id = request.GET['item_id']
+        try:
+            page = Page.objects.get(id=int(item_id))
+        except Page.DoesNotExist:
+            return HttpResponse(-1)
+        except ValueError:
+            return HttpResponse(-1)
+        page.title = page.rating
+        page.save()
+        return HttpResponse(page.rating)
