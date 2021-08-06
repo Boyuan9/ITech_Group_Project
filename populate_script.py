@@ -73,9 +73,9 @@ def populate():
          'rating': 5,
          'img':'images/mhw.png'} ]
 
-    cats = {'Anime': {'pages': Anime_pages,'views':128,'likes':64},
-            'Comics': {'pages': Comics_pages,'views':64,'likes':32},
-            'Games': {'pages': Games_pages,'views':32,'likes':16} }
+    cats = {'Anime': {'pages': Anime_pages,'views':128,'likes':64, 'info':'','img':''},
+            'Comics': {'pages': Comics_pages,'views':64,'likes':32, 'info':'','img':''},
+            'Games': {'pages': Games_pages,'views':32,'likes':16, 'info':'','img':''} }
     
 # If you want to add more categories or pages,
 # add them to the dictionaries above.
@@ -83,7 +83,7 @@ def populate():
 # The code below goes through the cats dictionary, then adds each category,
 # and then adds all the associated pages for that category.
     for cat, cat_data in cats.items():
-        c = add_cat(cat,cat_data['views'],cat_data['likes'])
+        c = add_cat(cat,cat_data['views'],cat_data['likes'],cat_data['info'],cat_data['img'])
         for p in cat_data['pages']:
             add_page(c, p['title'], p['url'],p['views'],p['img'],p['info'],p['rating'])
 
@@ -102,11 +102,12 @@ def add_page(cat, title, url, views, img,info,rating):
     p.save()
     return p
 
-def add_cat(name,views,likes):
+def add_cat(name,views,likes,info,img):
     c = Category.objects.get_or_create(name=name)[0]
     c.views=views
     c.likes=likes
-    
+    c.info = info
+    c.img = img
     c.save()
     return c
 
